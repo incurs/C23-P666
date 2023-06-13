@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "829308840678",
+    "project_id": "scancial-6c0c5",
+    "storage_bucket": "scancial-6c0c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829308840678:android:0c3f967622d84a6f116927",
+        "android_client_info": {
+          "package_name": "com.example.scancial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829308840678-vsbd08gnicecgvdr7qcn2ve6mlrm31pr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcG6zB485pll2DUOgot5S2wniPCib0_nM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829308840678-idcnkhpcv801pam5f5oeokjav76573rt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
