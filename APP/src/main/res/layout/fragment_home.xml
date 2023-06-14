@@ -2,17 +2,17 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     tools:context=".ui.HomeFragment">
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <View
             android:id="@+id/bg_appbar"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_height="100dp"
             android:background="@drawable/bgup_bar"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,8 +20,7 @@
             android:id="@+id/igUser"
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="10dp"
             android:src="@drawable/anya"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -30,8 +29,9 @@
             android:id="@+id/tvHello"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="10dp"
             android:text="Hallo,"
+            android:fontFamily="@font/inter_bold"
             android:layout_marginStart="10dp"
             android:textColor="@color/white"
             android:textSize="23dp"
@@ -44,22 +44,22 @@
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
             android:layout_marginStart="10dp"
+            android:fontFamily="@font/inter_regular"
             android:text="Sulfa Nurohid"
             android:textColor="@color/white"
             android:textSize="18dp"
             app:layout_constraintStart_toEndOf="@+id/igUser"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvHello"
             tools:ignore="MissingConstraints" />
 
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginStart="100dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/notifications"
-            app:layout_constraintStart_toEndOf="@+id/tvName"
+            app:layout_constraintEnd_toEndOf="@+id/bg_appbar"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -67,17 +67,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Tips dan Trick"
-            android:textSize="20dp"
+            android:text="Tips dan Trik"
+            android:textSize="17dp"
             android:textStyle="bold"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bg_appbar" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_trick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/iB"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTips"
             tools:itemCount="1"
@@ -88,33 +88,38 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Kenali Kulit Anda"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_marginStart="30dp"
+            android:textSize="17dp"
+            android:fontFamily="@font/inter_bold"
+            android:layout_marginStart="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iB" />
+            app:layout_constraintTop_toBottomOf="@+id/rv_trick" />
+
         <include
             android:id="@+id/fitur"
-            layout="@layout/fitur_home"/>
+            layout="@layout/fitur_home"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFit" />
         <TextView
             android:id="@+id/tvRek"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Rekomendasi"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_marginStart="30dp"
+            android:text="Rekomendasi untuk anda"
+            android:textSize="17dp"
+            android:fontFamily="@font/inter_bold"
+            android:layout_marginStart="17dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fitur" />
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_product"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvRek"
             tools:itemCount="1"
-            tools:listitem="@layout/item_produk"/>
+            tools:listitem="@layout/item_product"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

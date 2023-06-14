@@ -23,7 +23,6 @@
       android:id="@+id/img_logo_auth"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginTop="12dp"
       android:contentDescription="reg"
       android:src="@drawable/reg"
       app:layout_constraintEnd_toEndOf="parent"
@@ -31,11 +30,12 @@
       app:layout_constraintTop_toBottomOf="@+id/img_back" />
 
   <TextView
-      android:id="@+id/textView"
+      android:id="@+id/tv_daftar"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginTop="24dp"
-      android:text="Sign Up"
+      android:layout_marginTop="10dp"
+      android:text="Daftar"
+      android:textStyle="bold"
       android:textSize="36dp"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/img_logo_auth" />
@@ -48,8 +48,7 @@
       android:src="@drawable/person_circle_green"
       app:layout_constraintBottom_toBottomOf="@+id/edit_name"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="@+id/edit_name"
-      app:tint="@color/black" />
+      app:layout_constraintTop_toTopOf="@+id/edit_name"/>
 
   <EditText
       android:id="@+id/edit_name"
@@ -64,7 +63,7 @@
       android:textSize="14sp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toEndOf="@+id/img_person"
-      app:layout_constraintTop_toBottomOf="@+id/textView" />
+      app:layout_constraintTop_toBottomOf="@+id/tv_daftar" />
 
   <ImageView
       android:id="@+id/img_mail"
@@ -75,17 +74,16 @@
       app:layout_constraintBottom_toBottomOf="@+id/edit_email"
       app:layout_constraintEnd_toEndOf="@+id/img_person"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="@+id/edit_email"
-      app:tint="@color/black" />
+      app:layout_constraintTop_toTopOf="@+id/edit_email"/>
 
   <EditText
       android:id="@+id/edit_email"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_marginStart="16dp"
-      android:layout_marginTop="12dp"
+      android:layout_marginTop="10dp"
       android:autofillHints="emailAddress"
-      android:hint="email"
+      android:hint="Email"
       android:includeFontPadding="false"
       android:inputType="textEmailAddress"
       android:textSize="14sp"
@@ -102,17 +100,16 @@
       app:layout_constraintBottom_toBottomOf="@+id/edit_password"
       app:layout_constraintEnd_toEndOf="@+id/img_mail"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="@+id/edit_password"
-      app:tint="@color/black" />
+      app:layout_constraintTop_toTopOf="@+id/edit_password"/>
 
   <EditText
       android:id="@+id/edit_password"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_marginStart="16dp"
-      android:layout_marginTop="12dp"
+      android:layout_marginTop="10dp"
       android:autofillHints="password"
-      android:hint="password"
+      android:hint="Password"
       android:includeFontPadding="false"
       android:inputType="textPassword"
       android:textSize="14sp"
@@ -121,13 +118,12 @@
       app:layout_constraintTop_toBottomOf="@+id/edit_email" />
 
   <TextView
-      android:id="@+id/textView2"
+      android:id="@+id/tv_priv"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_marginTop="16dp"
-      android:layout_marginEnd="26dp"
       android:text="Dengan mendaftar, Anda menyetujui Syarat dan Ketentuan dan Kebijakan Privasi kami"
-      android:textSize="14sp"
+      android:textSize="12sp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/edit_password" />
@@ -139,16 +135,16 @@
       android:layout_marginTop="20dp"
       android:background="@drawable/btn"
       android:includeFontPadding="false"
-      android:text="SignUp"
+      android:text="Daftar"
       android:textAllCaps="false"
       android:textColor="@color/white"
       android:textSize="16dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/textView2" />
+      app:layout_constraintTop_toBottomOf="@+id/tv_priv" />
 
   <TextView
-      android:id="@+id/tv_account_already"
+      android:id="@+id/tv_a_ready"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="16dp"
