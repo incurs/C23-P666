@@ -6,10 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.scancial.core.entity.Product
+import com.example.scancial.core.entity.Tips
 import com.example.scancial.databinding.FragmentHomeBinding
 import com.example.scancial.ui.adapter.ProductAdapter
 import com.example.scancial.ui.adapter.TipsAdapter
@@ -39,10 +42,26 @@ class HomeFragment : Fragment(),View.OnClickListener, ProductAdapter.ProductClic
         initView()
         initProfile()
     }
-
-    private fun initProfile() = with(binding) {
+    private fun initProfile() {
         val currentUser = FirebaseAuth.getInstance().currentUser
-        tvName.text = currentUser?.displayName
+
+        if (currentUser != null) {
+            val photoUrl = currentUser.photoUrl?.toString()
+            if (!photoUrl.isNullOrEmpty()) {
+                binding.igUser.loadImage(photoUrl)
+            } else {
+                binding.igUser.loadImage(DummyData.Image()[0])
+            }
+
+            val userName = currentUser.displayName
+            val userEmail = currentUser.email
+
+            if (!userName.isNullOrEmpty()) {
+                binding.tvName.text = userName
+            } else if (userEmail.isNullOrEmpty()) {
+                binding.tvName.text = userEmail
+            }
+        }
     }
 
     private fun initView() {
@@ -61,6 +80,12 @@ class HomeFragment : Fragment(),View.OnClickListener, ProductAdapter.ProductClic
             adapter = productAdapter
         }
     }
+    private fun ImageView.loadImage(url: String?) {
+        Glide.with(this.context)
+            .load(url)
+            .centerCrop()
+            .into(this)
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -68,7 +93,10 @@ class HomeFragment : Fragment(),View.OnClickListener, ProductAdapter.ProductClic
     }
 
     override fun onClick(p0: View?) {
-        TODO("Not yet implemented")
+        binding.rvTrick.setOnClickListener {
+            val trick = Intent(requireActivity(), TipsTrikFragment::class.java)
+            startActivity(trick)
+        }
     }
 
     override fun onClickProduct(product: Product) {

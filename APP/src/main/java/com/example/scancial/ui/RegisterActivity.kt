@@ -1,23 +1,22 @@
 package com.example.scancial.ui
 
-import android.content.ContentValues.TAG
+import android.app.ProgressDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
-import com.example.scancial.R
+import androidx.appcompat.app.AppCompatActivity
 import com.example.scancial.databinding.ActivityRegisterBinding
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 
+@Suppress("DEPRECATION")
 class RegisterActivity : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
     lateinit var binding : ActivityRegisterBinding
+    private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -25,6 +24,11 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
+
+        progressDialog = ProgressDialog(this)
+        progressDialog.setCancelable(false)
+        progressDialog.setMessage("Pendaftaran...")
+
         binding.tvAReady.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
@@ -35,35 +39,30 @@ class RegisterActivity : AppCompatActivity() {
             val password = binding.editPassword.text.toString()
             val username = binding.editName.text.toString()
 
-            // Validasi email
             if (email.isEmpty()) {
                 binding.editEmail.error = "Email Harus Diisi"
                 binding.editEmail.requestFocus()
                 return@setOnClickListener
             }
 
-            // Validasi email tidak sesuai
             if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 binding.editEmail.error = "Email Tidak Valid"
                 binding.editEmail.requestFocus()
                 return@setOnClickListener
             }
 
-            // Validasi password
             if (password.isEmpty()) {
                 binding.editPassword.error = "Password Harus Diisi"
                 binding.editPassword.requestFocus()
                 return@setOnClickListener
             }
 
-            // Validasi panjang password
             if (password.length < 6) {
                 binding.editPassword.error = "Password Minimal 6 Karakter"
                 binding.editPassword.requestFocus()
                 return@setOnClickListener
             }
 
-            // Validasi nama pengguna
             if (username.isEmpty()) {
                 binding.editName.error = "Nama Pengguna Harus Diisi"
                 binding.editName.requestFocus()
@@ -75,9 +74,12 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun RegisterFirebase(email: String, password: String, username: String) {
+        progressDialog.show()
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
+                progressDialog.dismiss()
                 if (task.isSuccessful) {
+                    Snackbar.make(binding.root, "Akun Berhasil Dibuat", Snackbar.LENGTH_LONG)
                     val firebaseUser = auth.currentUser
                     val profileUpdates = UserProfileChangeRequest.Builder()
                         .setDisplayName(username)
@@ -94,7 +96,7 @@ class RegisterActivity : AppCompatActivity() {
                             }
                         }
                 } else {
-                    Toast.makeText(this, "${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    Snackbar.make(binding.root, "${task.exception?.message}", Snackbar.LENGTH_SHORT).show()
                 }
             }
     }

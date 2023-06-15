@@ -10,26 +10,27 @@
         android:padding="10dp">
 
         <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/imgProduct"
-        android:background="@drawable/bg_produk"
-        android:layout_width="wrap_content"
-        android:layout_height="160dp"
-        android:contentDescription="produk"
-        android:src="@drawable/produk2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:riv_corner_radius="20dp" />
+            android:id="@+id/imgProduct"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/bg_produk"
+            android:contentDescription="produk"
+            android:src="@drawable/produk2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="20dp" />
 
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Scancial Serum"
             android:fontFamily="@font/inter_bold"
-            android:textStyle="bold"
+            android:text="Scancial Serum"
             android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/imgProduct"
             app:layout_constraintTop_toBottomOf="@+id/imgProduct"
             tools:ignore="MissingConstraints" />
 
@@ -38,11 +39,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Rp120.000"
             android:fontFamily="@font/inter_semibold"
+            android:text="Rp120.000"
             android:textColor="@color/teal"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imgProduct"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
         <TextView

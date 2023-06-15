@@ -20,8 +20,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     private val binding get() = _binding!!
     private val fragment = this
 
-//    private val authViewModel: AuthViewModel by viewModel()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -40,14 +38,36 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         super.onDestroyView()
         _binding = null
     }
-    private fun initProfile() = with(binding) {
+    private fun initProfile() {
         val currentUser = FirebaseAuth.getInstance().currentUser
-        tvUserName.text = currentUser?.displayName
+
+        if (currentUser != null) {
+            val userName = currentUser.displayName
+            val userEmail = currentUser.email
+
+            if (!userName.isNullOrEmpty()) {
+                binding.tvUserName.text = userName
+            } else if (userEmail.isNullOrEmpty()) {
+                binding.tvUserName.text = userEmail
+            }
+        }
     }
+
     private fun initView() =
 
         with(binding) {
+        val currentUser = FirebaseAuth.getInstance().currentUser
+
+        if (currentUser != null) {
+            val photoUrl = currentUser.photoUrl?.toString()
+            if (!photoUrl.isNullOrEmpty()) {
+                imgUser.loadImage(photoUrl)
+            } else {
+                imgUser.loadImage(DummyData.Image()[0])
+            }
+        } else {
             imgUser.loadImage(DummyData.Image()[0])
+        }
         tvEditProfile.setOnClickListener(fragment)
         tvChangePassword.setOnClickListener(fragment)
         tvBankInformation.setOnClickListener(fragment)

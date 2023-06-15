@@ -1,5 +1,6 @@
 package com.example.scancial.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -33,22 +34,28 @@ class ShopFragment : Fragment(),View.OnClickListener, ProductAdapter.ProductClic
         initView()
     }
 
-    private fun initView() = with(binding) {
+    private fun initView() {
         DummyData.apply {
             productAdapter.setData(Product())
         }
-        with(binding.rvProduct){
-            adapter = productAdapter
-            layoutManager = FlexboxLayoutManager(requireContext(),
-                com.google.android.flexbox.FlexDirection.ROW, com.google.android.flexbox.FlexWrap.WRAP)
-        }
-    }
-
-    override fun onClick(p0: View?) {
-        TODO("Not yet implemented")
+        val layoutManager = FlexboxLayoutManager(requireContext())
+        layoutManager.flexDirection = FlexDirection.ROW
+        layoutManager.flexWrap = FlexWrap.WRAP
+        binding.rvProduct.layoutManager = layoutManager
+        binding.rvProduct.adapter = productAdapter
     }
 
     override fun onClickProduct(product: Product) {
+        val detailIntent = Intent(requireActivity(), DetailProdukActivity::class.java)
+        startActivity(detailIntent)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    override fun onClick(p0: View?) {
         TODO("Not yet implemented")
     }
 }

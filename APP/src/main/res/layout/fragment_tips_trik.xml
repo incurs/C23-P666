@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.TipsTrikFragment">
+
+    <ImageView
+        android:id="@+id/iv_alami"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/alami"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Tips Merawat Wajah dari Bahan Alami"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_alami" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textStyle="italic"
+        android:text="Naomi Syahriana   |   3 Maret 2023   |   Kompas/"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_regular"
+        android:justificationMode="inter_word"
+        android:text="Merawat wajah menggunakan bahan alami adalah pilihan yang baik
+         karena bahan-bahan tersebut umumnya aman dan tidak mengandung bahan kimia berbahaya.
+         Berikut adalah beberapa tips untuk merawat wajah menggunakan bahan alami."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginTop="3dp"
+        android:justificationMode="inter_word"
+        android:text="1. Cuci wajah secara teratur: Bersihkan wajah Anda setidaknya dua kali sehari dengan menggunakan air hangat dan sabun wajah."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginTop="3dp"
+        android:justificationMode="inter_word"
+        android:text="2. Masker alami: Gunakan masker alami untuk merawat wajah.
+         Misalnya, masker pisang dapat memberikan kelembapan pada kulit, masker madu dapat membantu menyembuhkan jerawat, dan masker oatmeal dapat mengurangi peradangan pada kulit sensitif."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
