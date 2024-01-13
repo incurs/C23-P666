@@ -1,11 +1,10 @@
 package com.example.scancial
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.scancial.R
 import com.example.scancial.databinding.ActivitySplashScreenBinding
 import com.example.scancial.ui.LoginActivity
 import com.google.firebase.auth.FirebaseAuth

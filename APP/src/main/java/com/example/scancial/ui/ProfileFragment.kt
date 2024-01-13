@@ -2,14 +2,12 @@ package com.example.scancial.ui
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.example.scancial.R
-import com.example.scancial.core.entity.Product
 import com.example.scancial.databinding.FragmentProfileBinding
 import com.example.scancial.utils.DummyData
 import com.google.firebase.auth.FirebaseAuth

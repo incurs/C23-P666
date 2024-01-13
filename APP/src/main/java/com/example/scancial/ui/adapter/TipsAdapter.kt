@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.scancial.R
 import com.example.scancial.core.entity.Tips
 import com.example.scancial.databinding.BannerHomeBinding
 
